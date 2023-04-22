@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/pokemonNumberTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/not_downloaded_and_number"
+        android:text="1"
+        android:textSize="18sp"
+        />
+    <TextView
+        android:id="@+id/pokemonNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/text_color"
+        android:text="Pokemon Name"
+        android:textSize="22sp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
