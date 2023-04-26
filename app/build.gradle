@@ -80,4 +80,14 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
     //endregion
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+
+    //Paging library v3
+    implementation 'androidx.paging:paging-runtime-ktx:3.1.1'
+
+    //Swiperefreshlayout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
 }

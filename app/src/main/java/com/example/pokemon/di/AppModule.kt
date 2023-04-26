@@ -1,4 +1,5 @@
-package com.pult.application.di
+package com.example.pokemon.di
+
 
 import android.app.Application
 import android.content.Context

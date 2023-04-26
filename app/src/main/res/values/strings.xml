@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Pokemon</string>
+    <string name="simple_name">Pokemon Name</string>
+    <string name="pokemon_number">1</string>
+    <string name="pokemon_name">Name: %1s</string>
+    <string name="pokemon_type">Type: %1s</string>
+    <string name="pokemon_weight">Weight: %s kg</string>
+    <string name="pokemon_height">Height: %s cm</string>
 </resources>

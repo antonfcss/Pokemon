@@ -1,4 +1,4 @@
-package com.pult.application.di
+package com.example.pokemon.di
 
 import com.example.pokemon.data.PokemonApi
 import dagger.Module

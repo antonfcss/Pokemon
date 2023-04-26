@@ -1,5 +1,7 @@
 package com.example.pokemon.data
 
+import com.example.pokemon.data.entities.PokemonApiDetail
+import com.example.pokemon.data.entities.PokemonApiResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

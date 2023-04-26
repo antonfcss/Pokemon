@@ -7,4 +7,5 @@
     <color name="toolbar">#000839</color>
     <color name="downloaded">#FFA41B</color>
     <color name="not_downloaded_and_number">#6292B0</color>
+    <color name="bottom">#00A8CC</color>
 </resources>

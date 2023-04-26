@@ -1,8 +1,8 @@
 package com.example.pokemon
 
 import android.app.Application
-import com.pult.application.di.AppComponent
-import com.pult.application.di.DaggerAppComponent
+import com.example.pokemon.di.AppComponent
+import com.example.pokemon.di.DaggerAppComponent
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
