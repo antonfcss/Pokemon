@@ -22,7 +22,7 @@ import javax.inject.Inject
 class PokemonRepository @Inject constructor(
     private val pokemonApi: PokemonApi,
     private val context: Context,
-    private val pokemonDataSource: PokemonDataSource
+    private val pokemonDataSource: PokemonDataSource,
 ) {
 
     fun getPagingPokemon(): Flow<PagingData<PokemonModel>> {
@@ -35,6 +35,7 @@ class PokemonRepository @Inject constructor(
     suspend fun getDetailPokemon(id: Int): Flow<PokemonModelDetail> {
         return flow {
             val apiModel = pokemonApi.getPokemonById(id).body()!!
+            //save to db
             emit(
                 PokemonModelDetail(
                     name = apiModel.name,
