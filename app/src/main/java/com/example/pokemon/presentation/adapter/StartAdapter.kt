@@ -2,12 +2,13 @@ package com.example.pokemon.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
+import androidx.paging.PagingDataAdapter
 import com.example.pokemon.databinding.RecyclerviewItemPokemonBinding
+import com.example.pokemon.domane.PokemonModel
 
 class StartAdapter(
     private val onClick: (String) -> Unit
-) : ListAdapter<StartModel, StartViewHolder>(StartDiffUtil()) {
+) : PagingDataAdapter<PokemonModel, StartViewHolder>(StartDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StartViewHolder {
         return StartViewHolder(
@@ -20,6 +21,6 @@ class StartAdapter(
     }
 
     override fun onBindViewHolder(holder: StartViewHolder, position: Int) {
-        holder.bind(getItem(position), onClick)
+        getItem(position)?.let { holder.bind(it, onClick) }
     }
 }

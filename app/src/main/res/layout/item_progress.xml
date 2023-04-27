@@ -5,7 +5,7 @@
     android:padding="4dp">
 
     <ProgressBar
-        style="?android:indeterminateProgressStyle"
+        android:indeterminateDrawable="@drawable/loader_progress"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_gravity="center" />

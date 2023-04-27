@@ -1,7 +1,8 @@
 package com.example.pokemon.presentation
 
-import com.example.pokemon.presentation.adapter.StartModel
+import androidx.paging.PagingData
+import com.example.pokemon.domane.PokemonModel
 
 data class StartState(
-    val startModelList: List<StartModel>
+    val startModelList: PagingData<PokemonModel>
 )
