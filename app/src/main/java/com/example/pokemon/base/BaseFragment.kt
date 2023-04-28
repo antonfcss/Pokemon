@@ -1,7 +1,6 @@
-package com.pult.application.base
+package com.example.pokemon.base
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,11 +69,9 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel<State>, State> 
 
     abstract fun renderSuccessState(viewState: ViewState.Success<State>)
 
-    private fun renderErrorState(viewState: ViewState.Error) {
-        Log.d("viewStateError", viewState.message)
-    }
+    abstract fun renderErrorState(viewState: ViewState.Error)
 
-    private fun renderLoadingState(viewState: ViewState.Loading) {}
+    abstract fun renderLoadingState(viewState: ViewState.Loading)
 
 }
 

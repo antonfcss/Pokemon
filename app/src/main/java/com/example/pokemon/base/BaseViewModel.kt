@@ -1,4 +1,4 @@
-package com.pult.application.base
+package com.example.pokemon.base
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

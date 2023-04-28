@@ -11,7 +11,7 @@ import com.example.pokemon.databinding.ItemProgressBinding
 
 class StartLoaderStateAdapter() : LoadStateAdapter<StartLoaderStateAdapter.ItemViewHolder>() {
     override fun getStateViewType(loadState: LoadState) = when (loadState) {
-        is LoadState.NotLoading -> error("Not supported")
+        is LoadState.NotLoading -> ERROR
         LoadState.Loading -> PROGRESS
         is LoadState.Error -> ERROR
     }
@@ -22,9 +22,9 @@ class StartLoaderStateAdapter() : LoadStateAdapter<StartLoaderStateAdapter.ItemV
 
     override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): ItemViewHolder {
         return when (loadState) {
-            LoadState.Loading -> ProgressViewHolder(LayoutInflater.from(parent.context), parent)
-            is LoadState.Error -> ErrorViewHolder(LayoutInflater.from(parent.context), parent)
-            is LoadState.NotLoading -> error("Not supported")
+            LoadState.Loading -> ProgressViewHolder(parent)
+            is LoadState.Error -> ErrorViewHolder(parent)
+            is LoadState.NotLoading ->ErrorViewHolder(parent)
         }
     }
 
@@ -32,6 +32,7 @@ class StartLoaderStateAdapter() : LoadStateAdapter<StartLoaderStateAdapter.ItemV
 
         private const val ERROR = 1
         private const val PROGRESS = 0
+
     }
 
     abstract class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -40,7 +41,7 @@ class StartLoaderStateAdapter() : LoadStateAdapter<StartLoaderStateAdapter.ItemV
     }
 
     class ProgressViewHolder internal constructor(
-        private val binding: ItemProgressBinding
+        binding: ItemProgressBinding
     ) : ItemViewHolder(binding.root) {
 
         override fun bind(loadState: LoadState) {
@@ -48,16 +49,12 @@ class StartLoaderStateAdapter() : LoadStateAdapter<StartLoaderStateAdapter.ItemV
 
         companion object {
 
-            operator fun invoke(
-                layoutInflater: LayoutInflater,
-                parent: ViewGroup? = null,
-                attachToRoot: Boolean = false
-            ): ProgressViewHolder {
+            operator fun invoke(parent: ViewGroup): ProgressViewHolder {
                 return ProgressViewHolder(
                     ItemProgressBinding.inflate(
-                        layoutInflater,
+                        LayoutInflater.from(parent.context),
                         parent,
-                        attachToRoot
+                        false
                     )
                 )
             }
@@ -75,19 +72,14 @@ class StartLoaderStateAdapter() : LoadStateAdapter<StartLoaderStateAdapter.ItemV
 
         companion object {
 
-            operator fun invoke(
-                layoutInflater: LayoutInflater,
-                parent: ViewGroup? = null,
-                attachToRoot: Boolean = false
-            ): ErrorViewHolder {
+            operator fun invoke(parent: ViewGroup): ErrorViewHolder {
                 return ErrorViewHolder(
                     ItemErrorBinding.inflate(
-                        layoutInflater,
-                        parent,
-                        attachToRoot
+                        LayoutInflater.from(parent.context), parent, false
                     )
                 )
             }
+
         }
     }
 }

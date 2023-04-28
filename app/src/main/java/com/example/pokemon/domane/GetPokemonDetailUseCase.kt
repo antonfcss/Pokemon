@@ -12,10 +12,10 @@ class GetPokemonDetailUseCase @Inject constructor(
         val id = idRegex.find(url)
         if (id != null) {
             return pokemonRepository.getDetailPokemon(
-                id.groupValues.getOrNull(1)?.toIntOrNull()!!.toInt()
+                id.groupValues.getOrNull(1)?.toIntOrNull()
+                    ?: throw RuntimeException("Регулярка сломалась")
             )
         }
-        throw Exception("Регулярка сломалась")
-
+        throw RuntimeException("Регулярка сломалась")
     }
 }

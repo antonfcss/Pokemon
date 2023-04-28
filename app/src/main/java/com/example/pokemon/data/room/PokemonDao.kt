@@ -12,10 +12,12 @@ interface PokemonDao {
     fun insertPokemonEntity(pokemonEntity: PokemonEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAboutPokemon(aboutPokemonEntity: AboutPokemonEntity)
+    suspend fun insertAboutPokemon(pokemonDetailEntity: PokemonDetailEntity)
 
     @Query("SELECT * FROM pokemon ORDER BY name ASC LIMIT :limit OFFSET :offset")
     suspend fun getPagedList(limit: Int, offset: Int): List<PokemonEntity>
 
+    @Query("SELECT * FROM aboutPokemon WHERE id = :id LIMIT 1")
+    suspend fun getPokemonDetails(id: Int): PokemonDetailEntity?
 
 }

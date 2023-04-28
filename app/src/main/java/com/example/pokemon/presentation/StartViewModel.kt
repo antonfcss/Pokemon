@@ -1,11 +1,11 @@
 package com.example.pokemon.presentation
 
-import android.util.Log
+import com.example.pokemon.base.BaseViewModel
+import com.example.pokemon.base.ViewState
 import com.example.pokemon.domane.GetPokemonUseCase
-import com.pult.application.base.BaseViewModel
-import com.pult.application.base.ViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,15 +16,10 @@ class StartViewModel @Inject constructor(
     fun getPokemonList() {
         launchIO {
             getPokemonUseCase.getData()
-                .catch { Log.d("errorOnGetProgramsList", it.message.toString()) }
+                .onStart { updateState(ViewState.Loading) }
+                .catch { updateState(ViewState.Error(it.message.toString())) }
                 .collect { pokemonList ->
-                    updateState(
-                        ViewState.Success(
-                            StartState(
-                                pokemonList
-                            )
-                        )
-                    )
+                    updateState(ViewState.Success(StartState(pokemonList)))
                 }
         }
     }
