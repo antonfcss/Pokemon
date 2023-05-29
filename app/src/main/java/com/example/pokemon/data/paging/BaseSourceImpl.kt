@@ -21,12 +21,14 @@ class BaseSourceImpl @Inject constructor() : BaseSource {
             } else return Results.Error(Exception("response not success"))
         } catch (e: Exception) {
             return when (e) {
-                is IOException -> {
-                    Results.Error(e)
-                }
                 is SocketTimeoutException -> {
                     Results.Error(e)
                 }
+
+                is IOException -> {
+                    Results.Error(e)
+                }
+
                 else -> {
                     Results.Error(e)
                 }

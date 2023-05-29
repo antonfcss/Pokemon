@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.pokemon.R
 import com.example.pokemon.base.BaseFragment
@@ -42,7 +43,7 @@ class StartFragment : BaseFragment<StartFragmentBinding, StartViewModel, StartSt
             errorLayout.root.isVisible = false
             progress.isVisible = false
         }
-        CoroutineScope(Dispatchers.Main).launch {
+        lifecycleScope.launch {
             startAdapter.submitData(viewState.data.startModelList)
         }
     }

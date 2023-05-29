@@ -51,7 +51,7 @@ class PokemonDataSource @Inject constructor(
                                         )
                                     }
                                 }
-                                if (data.isNullOrEmpty()) {
+                                if (data.isEmpty()) {
                                     LoadResult.Error(Throwable("Empty data"))
                                 } else {
                                     LoadResult.Page(
